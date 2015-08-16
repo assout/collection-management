@@ -11,7 +11,7 @@
 # fi
 
 # The logic to stop your application should be put in this script.
-if [[ -n $(ps -A | grep java` ]]; then
+if [[ -n $(ps -A | grep java) ]]; then
 	pkill -SIGTERM java
 fi
 exit 0
