@@ -22,12 +22,21 @@ import com.j256.ormlite.table.TableUtils;
 
 public class HelloSpark {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws Exception {
+		try {
+			proc();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
+	public static void proc() throws Exception {
 		ipAddress(Optional.ofNullable(System.getenv("IP_ADDRESS")).orElse("0.0.0.0"));
 		port(Integer.parseInt(Optional.ofNullable(System.getenv("PORT")).orElse("5353")));
 
 // TODO db layer
-		String db_host = Optional.ofNullable(System.getenv("DB_IP_ADDRESS")).orElse("172.17.0.2");
+		String db_host = Optional.ofNullable(System.getenv("DB_IP_ADDRESS")).orElse("172.17.0.6");
 		String db_port = Optional.ofNullable(System.getenv("DB_PORT")).orElse("3306");
 		String db_name = Optional.ofNullable(System.getenv("DB_DATABASE")).orElse("test");
 		String databaseUrl = "jdbc:mysql://" + db_host + ":" + db_port + "/" + db_name;
