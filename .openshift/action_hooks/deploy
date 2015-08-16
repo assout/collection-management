@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -x
+
+# Java8インストール
+if [ ! -d $OPENSHIFT_DATA_DIR/jdk1.8.0_20 ] ; then
+	cd $OPENSHIFT_DATA_DIR
+	wget http://www.java.net/download/jdk8u20/archive/b17/binaries/jdk-8u20-ea-bin-b17-linux-x64-04_jun_2014.tar.gz
+	tar xvf *.tar.gz 
+	rm -f *.tar.gz
+fi
+
+# mavenインストール
+if [ ! -d $OPENSHIFT_DATA_DIR/apache-maven-3.3.1 ] ; then
+	cd $OPENSHIFT_DATA_DIR
+	wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.tar.gz
+	tar xvf *.tar.gz 
+	rm -f *.tar.gz
+fi
+
+export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
+export M2=$OPENSHIFT_DATA_DIR/apache-maven-3.3.1/bin
+export PATH=$JAVA_HOME/bin:$M2:$PATH
+
+cd $OPENSHIFT_REPO_DIR
+mvn -e -s $OPENSHIFT_REPO_DIR/.openshift/settings.xml -q clean install
+
+# vim:ft=sh:
+

@@ -2,4 +2,23 @@
 # The logic to start up your application should be put in this
 # script. The application will work only if it binds to
 # $OPENSHIFT_DIY_IP:8080
-nohup $OPENSHIFT_REPO_DIR/diy/testrubyserver.rb $OPENSHIFT_DIY_IP $OPENSHIFT_REPO_DIR/diy |& /usr/bin/logshifter -tag diy &
+# nohup $OPENSHIFT_REPO_DIR/diy/testrubyserver.rb $OPENSHIFT_DIY_IP $OPENSHIFT_REPO_DIR/diy |& /usr/bin/logshifter -tag diy &
+
+set -x
+
+export M2=$OPENSHIFT_DATA_DIR/apache-maven-3.3.1/bin
+export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
+export PATH=$JAVA_HOME/bin:$M2:$PATH
+
+export IP_ADDRESS=$OPENSHIFT_DIY_IP
+export PORT=$OPENSHIFT_DIY_PORT
+
+export DB_IP_ADDRESS=$OPENSHIFT_MYSQL_DB_HOST
+export DB_PORT=$OPENSHIFT_MYSQL_DB_PORT
+export DB_USER=$OPENSHIFT_MYSQL_DB_USERNAME
+export DB_PASS=$OPENSHIFT_MYSQL_DB_PASSWORD
+
+cd $OPENSHIFT_REPO_DIR
+java -jar target/collection-management-1.0-SNAPSHOT.jar &
+
+# vim:ft=sh:
