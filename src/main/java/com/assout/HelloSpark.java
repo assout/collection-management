@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 import spark.ModelAndView;
@@ -122,9 +123,12 @@ public class HelloSpark {
 			String title = request.queryParams("book-title");
 			String summary = request.queryParams("book-summary");
 			String content = request.queryParams("book-content");
-			String id = request.params("book-id");
+			String id = request.queryParams("book-id");
+			Objects.requireNonNull(id);
 
 			Book queryForId = bookDao.queryForId(id);
+			Objects.requireNonNull(queryForId);
+
 			queryForId.setTitle(title);
 			queryForId.setContent(content);
 			queryForId.setSummary(summary);

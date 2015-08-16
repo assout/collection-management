@@ -1,5 +1,6 @@
 <div class="starter-template">
-	<form class="form-horizontal" role="form" id='book-create-form' method='POST' <#if book??>action="/book/update/:id"<#else>action="/book/create"</#if>>
+	<form class="form-horizontal" role="form" id='book-create-form' method='POST'
+	 <#if book??>action="/book/update/:id"<#else>action="/book/create"</#if>>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="title">Title: </label>
 			<div class="col-sm-5">
@@ -19,5 +20,7 @@
 
 	<label for="content">Content</label>
 	<textarea class="form-control" name='book-content' id="content" rows='4' cols='50' form='book-create-form' placeholder="Enter book content"><#if book??>${book.getContent()}</#if></textarea>
-	<input type='submit' <#if book??>value='Update'<#else>value='Publish'</#if> class="btn btn-primary" form='book-create-form' />
+	<input type='submit' 
+	<#if book??>value='Update'<#else>value='Publish'</#if>
+	class="btn btn-primary" form='book-create-form' />
 </div>
