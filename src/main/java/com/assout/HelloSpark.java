@@ -148,6 +148,7 @@ public class HelloSpark {
 			return "";
 		});
 
+
 		get("/book/delete/:id", (request, response) -> {
 			String id = request.params(":id");
 			bookDao.deleteById(id);
