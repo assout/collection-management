@@ -23,6 +23,7 @@
 				<li class="active"><a href="/book/create"><span class="glyphicon glyphicon-pencil"> Register Book</a></li>
 				</ul>
 			</div>
+		
 		</div>
 	</div>
 
@@ -30,7 +31,8 @@
 		<#include "${templateName}">
 	</div>
 
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<scri
+	pt src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 	</body>
 	</html>

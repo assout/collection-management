@@ -1,0 +1,6 @@
+2015-09-07 01:27:01 INFO  TableUtils:44 - creating table 'book'
+2015-09-07 01:27:02 INFO  TableUtils:44 - executed create table statement changed 0 rows: CREATE TABLE IF NOT EXISTS `book` (`id` INTEGER AUTO_INCREMENT , `title` VARCHAR(255) , `content` VARCHAR(255) , `createdAt` DATETIME , `summary` VARCHAR(255) , `deleted` TINYINT(1) , PRIMARY KEY (`id`) ) ENGINE=InnoDB 
+2015-09-07 01:27:02 INFO  SparkServer:137 - == Spark has ignited ...
+2015-09-07 01:27:02 INFO  SparkServer:138 - >> Listening on 0.0.0.0:5353
+2015-09-07 01:27:02 INFO  Server:290 - jetty-9.0.2.v20130417
+2015-09-07 01:27:02 INFO  ServerConnector:265 - Started ServerConnector@446a32d6{HTTP/1.1}{0.0.0.0:5353}

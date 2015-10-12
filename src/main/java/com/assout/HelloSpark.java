@@ -36,9 +36,10 @@ public class HelloSpark {
 		port(Integer.parseInt(Optional.ofNullable(System.getenv("PORT")).orElse("5353")));
 
 // TODO db layer
-		String db_host = Optional.ofNullable(System.getenv("DB_IP_ADDRESS")).orElse("172.17.0.6");
+		String db_host = Optional.ofNullable(System.getenv("DB_IP_ADDRESS")).orElse("172.17.0.4");
 		String db_port = Optional.ofNullable(System.getenv("DB_PORT")).orElse("3306");
 		String db_name = Optional.ofNullable(System.getenv("DB_DATABASE")).orElse("test");
+//		String databaseUrl = "jdbc:mysql://" + db_host + ":" + db_port + "/" + db_name;
 		String databaseUrl = "jdbc:mysql://" + db_host + ":" + db_port + "/" + db_name;
 		String db_user = Optional.ofNullable(System.getenv("DB_USER")).orElse("root");
 		String db_pass = Optional.ofNullable(System.getenv("DB_PASS")).orElse("mysql");
